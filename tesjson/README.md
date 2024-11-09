@@ -1,2 +1,13 @@
-# Belajar CRUD JSON PHP
-Membuat dan Memanipulasi (CRUD) File JSON dengan PHP.<br>Ini adalah source code dari https://masrud.com/crud-json-php/
+
+# Hi, I'm Zahid Zahran! 👋
+
+
+# Tugas 2 Json
+
+
+masi belajar buat readme
+
+## Authors
+
+- [@okan208](https://www.github.com/okan208)
+

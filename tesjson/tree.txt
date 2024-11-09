@@ -1,0 +1,19 @@
+Folder PATH listing
+Volume serial number is 0CB4-8311
+C:.
+    anggota.json
+    bg.jpg
+    create.php
+    delete.php
+    insert.php
+    khs.php
+    khsjson.php
+    krs2.json
+    read.php
+    README.md
+    test.html
+    tree.txt
+    update.php
+    
+No subfolders exist 
+
