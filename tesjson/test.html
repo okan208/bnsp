@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 2 Zahid Zahran</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+    <style>
+        /* Sidebar navigation styling */
+        .sidebar {
+            position: fixed;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 20px;
+            background-color: #070707;
+            border-right: 1px solid #ddd;
+        }
+        .sidebar a {
+            color: #A64D79;
+            font-size: 1.5rem;
+            display: block;
+            text-align: center;
+            padding: 10px;
+            border-radius: 40%;
+            background-color: #e9ecef;
+            transition: background-color 0.3s;
+        }
+        .sidebar a.active, .sidebar a:hover {
+            background-color: #A64D79;
+            color: #ffffff;
+        }
+        /* Full screen sections */
+        section {
+            min-height: 100vh;
+            padding: 100px 0;
+        }
+        .hero {
+            background-image: url('bg.jpg'); 
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding-top: 100px;
+            display: flex;
+            align-items: center;
+        }
+        .hero-content {
+            margin-left: 100px; /* Adjust spacing from sidebar */
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ececec;
+        }
+        .hero p {
+            font-size: 1.5rem;
+            color: #d4d4d4;
+            margin-top: -10px;
+        }
+        /* Social media icons */
+        .hero .social-icons {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .hero .social-icons .btn-light {
+            background-color: #e9ecef;
+            border: none;
+            font-size: 1.5rem;
+            color: #333;
+            transition: background-color 0.3s;
+        }
+        .hero .social-icons .btn-light:hover {
+            background-color: #A64D79;
+            color: #fff;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .progress-bar {
+            background-color: #A64D79;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Sidebar Navigation -->
+<div class="sidebar">
+    <a href="#home" class="nav-link active"><i class="bi bi-house"></i></a>
+    <a href="#form-nilai" class="nav-link"><i class="bi bi-file-text"></i></a>
+    <a href="#data-mahasiswa" class="nav-link"><i class="bi bi-people"></i></a>
+</div>
+
+<!-- Home Section -->
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h1>Zahid Zahran</h1>
+        <p>I'm Skill Issue</p>
+    </div>
+    <!-- Social media icons positioned at the bottom of the section -->
+    <div class="social-icons d-flex justify-content-center">
+        <a href="https://instagram.com/_riverrz" target="_blank" class="btn btn-light me-2"><i class="bi bi-instagram"></i></a>
+        <a href="https://github.com/okan208" target="_blank" class="btn btn-light me-2"><i class="bi bi-github"></i></a>
+    </div>
+</section>
+
+<!-- Form Nilai Section -->
+<section id="form-nilai" class="py-5">
+    <div class="container d-flex">
+        <!-- Form for Input Data Nilai -->
+        <div class="form-container" style="flex: 1;">
+            <h2 class="section-title">Form Nilai</h2>
+            <form id="nilaiForm" method="post">
+                <h3>Program Menghitung Nilai Mata Kuliah</h3>
+
+                <label for="npm">NPM:</label>
+                <input type="text" name="npm" id="npm" required /><br />
+
+                <label for="nama">Nama:</label>
+                <input type="text" name="nama" id="nama" required /><br />
+
+                <label>Jenis Kelamin:</label><br />
+                <input type="radio" name="jk" value="Laki-laki" required /> Laki-laki<br />
+                <input type="radio" name="jk" value="Perempuan" required /> Perempuan<br />
+
+                <label for="jurusan">Jurusan:</label>
+                <select name="jurusan" id="jurusan" required>
+                    <option value="">Pilih Jurusan</option>
+                    <option value="Teknik Informatika">Teknik Informatika</option>
+                    <option value="Sistem Informasi">Sistem Informasi</option>
+                    <option value="Teknik Elektro">Teknik Elektro</option>
+                    <option value="Teknik Sipil">Teknik Sipil</option>
+                </select><br />
+
+                <label for="tugas">Masukan Input Tugas:</label>
+                <input type="number" name="tugas" id="tugas" required /><br />
+                
+                <label for="uts">Masukan Input UTS:</label>
+                <input type="number" name="uts" id="uts" required /><br />
+                
+                <label for="uas">Masukan Input UAS:</label>
+                <input type="number" name="uas" id="uas" required /><br />
+
+                <button type="button" onclick="calculateAndDisplayResults()">OK</button>
+                <input type="reset" value="Batal" />
+            </form>
+        </div>
+
+        <!-- Display Results on the Right -->
+        <div id="results" style="flex: 1; padding-left: 20px;">
+            <h3>Hasil Pengisian</h3>
+            <div id="resultContent"></div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function calculateAndDisplayResults() {
+        // Get input values
+        const npm = document.getElementById('npm').value;
+        const nama = document.getElementById('nama').value;
+        const jenis_kelamin = document.querySelector('input[name="jk"]:checked').value;
+        const jurusan = document.getElementById('jurusan').value;
+        const tugas = parseFloat(document.getElementById('tugas').value);
+        const uts = parseFloat(document.getElementById('uts').value);
+        const uas = parseFloat(document.getElementById('uas').value);
+
+        // Calculate final score and grade
+        const nilaiAkhir = (tugas * 0.2) + (uts * 0.3) + (uas * 0.5);
+        let grade, keterangan;
+        
+        if (nilaiAkhir >= 90) {
+            grade = "A";
+            keterangan = "Lulus";
+        } else if (nilaiAkhir >= 80) {
+            grade = "B";
+            keterangan = "Lulus";
+        } else if (nilaiAkhir >= 60) {
+            grade = "C";
+            keterangan = "Tidak Lulus";
+        } else {
+            grade = "D";
+            keterangan = "Tidak Lulus";
+        }
+
+        // Display results
+        const resultContent = `
+            <p><strong>NPM:</strong> ${npm}</p>
+            <p><strong>Nama:</strong> ${nama}</p>
+            <p><strong>Jenis Kelamin:</strong> ${jenis_kelamin}</p>
+            <p><strong>Jurusan:</strong> ${jurusan}</p>
+            <p><strong>Nilai Tugas:</strong> ${tugas}</p>
+            <p><strong>Nilai UTS:</strong> ${uts}</p>
+            <p><strong>Nilai UAS:</strong> ${uas}</p>
+            <p><strong>Total Nilai:</strong> ${nilaiAkhir.toFixed(2)}</p>
+            <p><strong>Grade:</strong> ${grade}</p>
+            <p><strong>Keterangan:</strong> ${keterangan}</p>
+        `;
+        document.getElementById('resultContent').innerHTML = resultContent;
+    }
+</script>
+
+
+<!-- Data Mahasiswa Section with Action Buttons -->
+<section id="data-mahasiswa" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="section-title">Data Mahasiswa</h2>
+        
+        <!-- Action Buttons -->
+        <div class="mb-3">
+            <a href="insert.php" class="btn btn-success">Insert</a>
+            <a href="delete.php" class="btn btn-danger">Delete</a>
+            <a href="update.php" class="btn btn-warning">Update</a>
+        </div>
+
+        <!-- Table for Data Display -->
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>Alamat</th>
+                    </tr>
+                </thead>
+                <tbody id="dataMahasiswaTable">
+                    <!-- Data will be populated here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Load data from anggota.json and display in table
+    fetch('anggota.json')
+        .then(response => response.json())
+        .then(data => {
+            const tableBody = document.getElementById('dataMahasiswaTable');
+            data.forEach((item) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.no}</td>
+                    <td>${item.nama}</td>
+                    <td>${item.alamat}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        })
+        .catch(error => console.error('Error loading data:', error));
+</script>
+
+
+</body>
+</html>

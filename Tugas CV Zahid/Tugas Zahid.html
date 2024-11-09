@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas CV Zahid Zahran</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+    <style>
+        /* Sidebar navigation styling */
+        .sidebar {
+            position: fixed;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 20px;
+            background-color: #070707;
+            border-right: 1px solid #ddd;
+        }
+        .sidebar a {
+            color: #A64D79;
+            font-size: 1.5rem;
+            display: block;
+            text-align: center;
+            padding: 10px;
+            border-radius: 40%;
+            background-color: #e9ecef;
+            transition: background-color 0.3s;
+        }
+        .sidebar a.active, .sidebar a:hover {
+            background-color: #A64D79;
+            color: #ffffff;
+        }
+        /* Full screen sections */
+        section {
+            min-height: 100vh;
+            padding: 100px 0;
+        }
+        .hero {
+            background-image: C:\xampp\htdocs\bnsp\img('bghome.png'); 
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding-top: 100px;
+            display: flex;
+            align-items: center;
+        }
+        .hero-content {
+            margin-left: 100px; /* Adjust spacing from sidebar */
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ececec;
+        }
+        .hero p {
+            font-size: 1.5rem;
+            color: #666;
+            margin-top: -10px;
+        }
+        /* Social media icons */
+        .hero .social-icons {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .hero .social-icons .btn-light {
+            background-color: #e9ecef;
+            border: none;
+            font-size: 1.5rem;
+            color: #333;
+            transition: background-color 0.3s;
+        }
+        .hero .social-icons .btn-light:hover {
+            background-color: #A64D79;
+            color: #fff;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .progress-bar {
+            background-color: #A64D79;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Sidebar Navigation -->
+<div class="sidebar">
+    <a href="#home" class="nav-link active"><i class="bi bi-house"></i></a>
+    <a href="#about" class="nav-link"><i class="bi bi-person"></i></a>
+    <a href="#resume" class="nav-link"><i class="bi bi-file-text"></i></a>
+    <a href="#skills" class="nav-link"><i class="bi bi-bar-chart"></i></a>
+</div>
+
+<!-- Home Section -->
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h1>Zahid Zahran</h1>
+        <p>I'm Skill Issue</p>
+    </div>
+    <!-- Social media icons positioned at the bottom of the section -->
+    <div class="social-icons d-flex justify-content-center">
+        <a href="https://instagram.com/_riverrz" target="_blank" class="btn btn-light me-2"><i class="bi bi-instagram"></i></a>
+        <a href="https://github.com/okan208" target="_blank" class="btn btn-light me-2"><i class="bi bi-github"></i></a>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Full Left Side Image -->
+            <div class="col-md-6">
+                <img src="jid.jpg" alt="Profile Picture" class="img-fluid" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <!-- Full Right Side Text and Button -->
+            <div class="col-md-6 d-flex flex-column justify-content-center">
+                <h2>About Me</h2>
+                <p>An undergraduate student in informatics major at the University of Indraprasta. Study data processing, web
+                    creation, and learn html and Java. Have interests in html and activities that lead to photography. Have some
+                    experience in photography, creating local internet networks.</p>
+                <!-- Attractive Download CV Button -->
+                <a href="CV _ Muhammad Zahid Zahran Fahrudinnidar.pdf" class="btn-custom mt-3" download>Download CV</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Custom CSS for the button -->
+<style>
+    .btn-custom {
+        display: inline-block;
+        padding: 12px 24px;
+        font-size: 18px;
+        color: #fff;
+        background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        border: none;
+        border-radius: 50px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .btn-custom:hover {
+        background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        transform: translateY(-3px);
+    }
+</style>
+
+<!-- Resume Section -->
+<section id="resume" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="section-title text-center mb-5">RESUME</h2>
+        <div class="row">
+            <!-- Education -->
+            <div class="col-md-4">
+                <div class="resume-item p-4 mb-4 text-center">
+                    <i class="bi bi-book-fill resume-icon mb-3"></i>
+                    <h4>Education</h4>
+                    <p>SMK 3 Perguruan Cikini</p>
+                    <p>Universitas Indraprasta PGRI</p>
+                </div>
+            </div>
+            <!-- Experience -->
+            <div class="col-md-4">
+                <div class="resume-item p-4 mb-4 text-center">
+                    <i class="bi bi-briefcase-fill resume-icon mb-3"></i>
+                    <h4>Experience</h4>
+                    <p>Bug Hunter and Sentence understanding researchers at PT. Digital Nusantara Advertensi</p>
+                </div>
+            </div>
+            <!-- Organizations -->
+            <div class="col-md-4">
+                <div class="resume-item p-4 mb-4 text-center">
+                    <i class="bi bi-people-fill resume-icon mb-3"></i>
+                    <h4>Organizations</h4>
+                    <p>Student Press Institute (LPM, University of Indraprasta)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Custom CSS for the Resume Section -->
+<style>
+    .section-title {
+        font-size: 2.5rem;
+        color: #333;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;
+    }
+    
+    /* Icons */
+    .resume-icon {
+        font-size: 2rem;
+        color: #A64D79;
+    }
+
+    /* Resume Item Card */
+    .resume-item {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Hover Effect for Resume Item */
+    .resume-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .resume-item h4 {
+        color: #A64D79;
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    .resume-item p {
+        font-size: 1rem;
+        color: #666;
+        margin-bottom: 0;
+    }
+</style>
+
+<!-- Skills Section -->
+<section id="skills" class="py-5">
+    <div class="container">
+        <h2 class="section-title">SKILLS</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <h5>Indonesia</h5>
+                <div class="progress mb-3">
+                    <div class="progress-bar" style="width: 90%;">90%</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h5>English</h5>
+                <div class="progress mb-3">
+                    <div class="progress-bar" style="width: 75%;">75%</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h5>Photography</h5>
+                <div class="progress mb-3">
+                    <div class="progress-bar" style="width: 80%;">80%</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h5>Wireless Network Creation</h5>
+                <div class="progress mb-3">
+                    <div class="progress-bar" style="width: 85%;">85%</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h5>Videography</h5>
+                <div class="progress mb-3">
+                    <div class="progress-bar" style="width: 75%;">75%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // JavaScript to add 'active' class to the clicked icon
+    document.querySelectorAll('.sidebar a').forEach(link => {
+        link.addEventListener('click', function() {
+            document.querySelectorAll('.sidebar a').forEach(item => item.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+</script>
+</body>
+</html>
